@@ -13,6 +13,6 @@ public class CameraScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Debug.Log("Ha");
+        Debug.Log("HOW DARE YOU");
 	}
 }
