@@ -2,29 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fighter : BaseMinion {
-
-	public enum Specialisations
+public enum Specialisations
 	{
 		Warrior,
 		Mage,
 		Rogue,
 		Archer
 	}
+
+public class Fighter : BaseMinion {
+
+	
 	void Start()
 	{
-		maxHp = 150;
-		hp = 150;
-		morale = 1;
-		build = 0.1;
-		speed = 1;
-		def = 1;
-		atk = 1;
-		range = 1;
+		float maxHp = 150;
+        float hp = 150;
+        float morale = 1;
+        float build = 0.1f;
+        float speed = 1;
+        float def = 1;
+        float atk = 1;
+        float range = 1;
 	}
+
+    public void Specialise(Specialisations specialisation)
+    {
+
+    }
 }
 
-public void Specialise(Specialisations specialisation)
-{
 
-}

@@ -6,13 +6,13 @@ public class Worker : BaseMinion {
 
 	void Start()
 	{
-		maxHp = 100;
-		hp = 100;
-		morale = 1;
-		atk = 0.5;
-		build = 1;
-		speed = 1;
-		def = 0.4;
-		range = 1;
+		int maxHp = 100;
+		int hp = 100;
+		int morale = 1;
+		float atk = 0.5f;
+		float build = 1;
+		float speed = 1;
+		float def = 0.4f;
+		float range = 1;
 	}
 }
