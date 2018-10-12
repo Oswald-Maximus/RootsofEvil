@@ -12,37 +12,45 @@ public class CameraScript : MonoBehaviour
     void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-	}
+
+        // Set to view point
+        //transform.LookAt(new Vector3(0.0f, 1.0f, 0.0f));
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetAxis("Horizontal") != 0)
-        {
-            //transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * Time.deltaTime * -rotationSpeed);
-            //transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed);
-
-            transform.RotateAround(player.transform.position, Vector3.up, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed);
-        }
-
-        if (Input.GetAxis("Vertical") != 0)
-        {
-            transform.LookAt(player.transform);
-
-            Vector3 zoomDir = transform.position - player.transform.position;
-            //zoomDir.Normalize();
-
-            transform.Translate(zoomDir * Input.GetAxis("Vertical") * Time.deltaTime * -zoomSpeed);
-            //transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * Time.deltaTime * -rotationSpeed);
-            //transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed);
-
-            //transform.RotateAround(player.transform.position, Vector3.up, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed);
-        }
-
-        //if (Input.GetKeyDown("left") || Input.GetKeyDown("right"))
+        //if (Input.GetAxis("Horizontal") != 0)
         //{
-        //    transform.Rotate(Vector3.right * Time.deltaTime);
+        //    transform.RotateAround(player.transform.position, Vector3.up, Input.GetAxis("Horizontal") * Time.deltaTime * -rotationSpeed);
         //}
+
+        //if (Input.GetAxis("Vertical") != 0)
+        //{
+        //    transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * Time.deltaTime * zoomSpeed);
+        //}
+
+        if (Input.GetButton("RotLeft"))
+        {
+            transform.RotateAround(player.transform.position, Vector3.up, Time.deltaTime * rotationSpeed);
+        }
+
+        if (Input.GetButton("RotRight"))
+        {
+            transform.RotateAround(player.transform.position, Vector3.up, Time.deltaTime * -rotationSpeed);
+        }
+
+        if (Input.GetAxis("ZoomIn") != -1.0f)
+        {
+            transform.Translate(Vector3.forward * (Input.GetAxis("ZoomIn") + 1.0f) * 0.5f * Time.deltaTime * zoomSpeed);
+            Debug.Log("R2 value " + Input.GetAxis("ZoomIn"));
+        }
+
+        if (Input.GetAxis("ZoomOut") != -1.0f)
+        {
+            transform.Translate(Vector3.forward * (Input.GetAxis("ZoomOut") + 1.0f) * 0.5f * Time.deltaTime * -zoomSpeed);
+            Debug.Log("L2 value " + Input.GetAxis("ZoomOut"));
+        }
 
     }
 }
