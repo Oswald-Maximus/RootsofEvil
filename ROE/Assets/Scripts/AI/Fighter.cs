@@ -22,9 +22,10 @@ public class Fighter : BaseMinion {
 		atk = 1;
 		range = 1;
 	}
-}
 
 public void Specialise(Specialisations specialisation)
 {
+
+}
 
 }
